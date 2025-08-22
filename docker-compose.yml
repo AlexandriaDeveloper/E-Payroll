@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    environment:
+      SA_PASSWORD: "yourStrong(!)Password"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+
+  e-payroll.api.web:
+    image: ${DOCKER_REGISTRY-}epayrollapiweb
+    build:
+      context: .
+      dockerfile: API/E-Payroll.API.Web/Dockerfile
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - db
+    environment:
+      - DB_CONNECTION_STRING=Server=db;Database=E-Payroll;User Id=sa;Password=yourStrong(!)Password;
+
+  e-payroll.ui:
+    build:
+      context: ./UI/E-Payroll.UI
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"

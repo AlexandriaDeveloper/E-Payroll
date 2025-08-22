@@ -1,0 +1,77 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Rider, VSCode
+.idea/
+.vscode/
+*.sublime-workspace
+
+# dotnet publish
+*.db
+*.pdb
+
+# NuGet
+*.nupkg
+project.lock.json
+packages/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# Angular dist
+/dist
+/dist/
+/dist/**
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Others
+*.vsix
+
+# Ignore build artifacts produced by dotnet in project folders
+**/bin/*
+**/obj/*
+
+# Ignore npm output
+**/dist/*
+
+# Ignore user secrets
+secrets.json
+
+# Local overrides
+local.settings.json
+
+# Coverage
+coverage/
+
+# Visual Studio Code workspace storage
+.vscode/*storage.json
